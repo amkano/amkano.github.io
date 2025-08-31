@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     margin: 40px;
-    background: #f0f0f0;
-    color: #222;
+    background: #0a2540; /* Dark blue */
+    color: #f0f0f0;      /* Light text for contrast */
 }
 header {
     text-align: center;
@@ -11,24 +11,24 @@ header {
 nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #0077cc;
+    color: #4fc3f7; /* Lighter blue for links */
 }
 nav a:hover {
     text-decoration: underline;
-    color: #005999;
+    color: #82b1ff; /* Even lighter blue on hover */
 }
 section {
     max-width: 600px;
     margin: auto;
-    background: white;
+    background: #162e4d; /* Slightly lighter dark blue for section background */
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.14);
 }
 footer {
     text-align: center;
     margin-top: 40px;
-    color: #888;
+    color: #b0bec5;
 }
 ul {
     padding-left: 20px;
