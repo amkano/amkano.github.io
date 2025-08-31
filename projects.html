@@ -190,12 +190,14 @@
             e.preventDefault();
             current = (current - 1 + images.length) % images.length;
             updateImg();
+            leftBtn.blur();  // Remove focus to prevent scrolling
         });
-
+        
         rightBtn.addEventListener('click', function(e) {
             e.preventDefault();
             current = (current + 1) % images.length;
             updateImg();
+            rightBtn.blur(); // Remove focus to prevent scrolling
         });
     });
     </script>
