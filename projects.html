@@ -49,16 +49,19 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background: black;               /* Prevent transparency edge issues */
+            padding: 2px;                    /* Optional: spacing between image and border */
+            border: 2px solid black;         /* Thin black border around the gallery area */
+            box-sizing: border-box;
         }
-
         .gallery img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             background: none;
             border-radius: 0;
-            border: 3px solid black;
         }
+
 
         .arrow-row {
             margin-top: 10px;
