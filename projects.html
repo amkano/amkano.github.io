@@ -6,31 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+
+        :root {
+            --page-padding: 20px;
+        }
+        
         body {
             background: #0a1733;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
+        .full-bleed {
+            margin: 0;
+            padding: 0;
+        }
+        
         .project-container {
-            width: 100%;
-            max-width: 100%;
-            padding: 40px 30px;
+            width: calc(100vw - (var(--page-padding) * 2));
+            max-width: 1200px; /* optional max width for big screens */
+            margin: 0 auto;    /* centers container */
+            padding: 40px var(--page-padding);
             background-color: #12254a; /* darker rectangle color */
             display: flex;
             gap: 40px;
             align-items: center;
             box-sizing: border-box;
         }
-
+        
         .gallery-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             flex: 2;
         }
-
+        
         .gallery {
             width: 100%;
             height: 600px;
@@ -39,7 +50,7 @@
             justify-content: center;
             overflow: hidden;
         }
-
+        
         .gallery img {
             width: 100%;
             height: 100%;
@@ -47,14 +58,14 @@
             background: none;
             border-radius: 0;
         }
-
+        
         .arrow-row {
             margin-top: 10px;
             display: flex;
             gap: 20px;
             justify-content: center;
         }
-
+        
         .arrow-btn {
             width: 40px;
             height: 40px;
@@ -65,34 +76,26 @@
             cursor: pointer;
             font-size: 22px;
         }
-
+        
         .project-info {
             color: #f0f0f0;
             flex: 1;
         }
-
+        
         @media (max-width: 900px) {
             .project-container {
                 flex-direction: column;
                 align-items: stretch;
-                padding: 20px;
+                padding: 20px var(--page-padding);
+                width: calc(100vw - (var(--page-padding) * 2));
+                max-width: none;
             }
-
+        
             .gallery {
                 height: 300px;
             }
         }
 
-        .full-bleed {
-            margin: 0;
-            padding: 0;
-        }
-
-        .project-container {
-            width: 100vw;
-            max-width: none;
-            ...
-        }
         
     </style>
 </head>
