@@ -7,23 +7,17 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .project-container {
-            max-width: 700px;
+            max-width: 1200px;   /* Use more screen width */
             margin: 40px auto;
             display: flex;
-            gap: 30px;
-            background: #162e4d;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+            gap: 40px;
             align-items: center;
         }
         .gallery {
             position: relative;
-            width: 250px;
-            height: 180px;
-            min-width: 250px;
-            background: #0a2540;
-            border-radius: 6px;
+            flex: 2;                 /* Take up more space on the left */
+            height: 400px;           /* Large image! Adjust as needed */
+            min-width: 300px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -32,8 +26,9 @@
         .gallery img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 6px;
+            object-fit: contain;     /* Show all of image, keep aspect ratio */
+            background: none;
+            border-radius: 0;
         }
         .arrow-btn {
             position: absolute;
@@ -53,16 +48,16 @@
         .arrow-btn.right { right: 10px; }
         .project-info {
             color: #f0f0f0;
-            flex: 1;
+            flex: 1;              /* Smaller than image */
         }
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
             .project-container {
                 flex-direction: column;
                 align-items: stretch;
             }
             .gallery {
                 width: 100%;
-                height: 180px;
+                height: 250px;
                 min-width: 0;
             }
         }
@@ -83,7 +78,7 @@
         <div class="project-container">
             <div class="gallery" data-images='["assets/img/torsional_jig_chassis.png","assets/img/torsional_data.png"]'>
                 <button class="arrow-btn left">&#8592;</button>
-                <img src="assets/img/torsional_jig_chassis.png.jpg" alt="Project screenshot">
+                <img src="assets/img/torsional_jig_chassis.png" alt="Project screenshot">
                 <button class="arrow-btn right">&#8594;</button>
             </div>
             <div class="project-info">
