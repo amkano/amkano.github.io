@@ -200,6 +200,20 @@
             rightBtn.blur(); // Remove focus to prevent scrolling
         });
     });
+
+        // Prevent arrow buttons from stealing focus and causing scroll jump
+    document.querySelectorAll('.arrow-btn').forEach(btn => {
+        btn.addEventListener('mousedown', e => {
+            e.preventDefault();
+        });
+        btn.addEventListener('touchstart', e => {
+            e.preventDefault();
+        });
+        btn.addEventListener('focus', e => {
+            e.preventDefault();
+        });
+    });
+        
     </script>
 </body>
 </html>
