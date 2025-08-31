@@ -8,14 +8,15 @@ header {
     text-align: center;
     margin-bottom: 40px;
 }
-nav a {
-    margin: 0 10px;
+a {
+    color: #f0f0f0; /* Matches regular paragraph text */
     text-decoration: none;
-    color: #4fc3f7; /* Lighter blue for links */
+    margin: 0 10px; /* Optional: keeps spacing for nav links */
 }
-nav a:hover {
+
+a:hover {
+    color: #ffffff; /* Brighter white on hover */
     text-decoration: underline;
-    color: #82b1ff; /* Even lighter blue on hover */
 }
 section {
     max-width: 600px;
