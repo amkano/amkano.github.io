@@ -10,17 +10,25 @@
         :root {
             --page-padding: 20px;
         }
-        
+
         body {
             background: #0a1733;
             box-sizing: border-box;
         }
-        
+
         .full-bleed {
             margin: 0;
             padding: 0;
         }
-        
+
+        /* ✅ New: Override the default narrow section from style.css */
+        .wide-section {
+            max-width: none;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
         .project-container {
             width: 100%;
             max-width: 1200px;           /* Controls how wide the content can grow */
@@ -32,14 +40,13 @@
             box-sizing: border-box;
         }
 
-        
         .gallery-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             flex: 2;
         }
-        
+
         .gallery {
             width: 100%;
             height: 600px;
@@ -48,7 +55,7 @@
             justify-content: center;
             overflow: hidden;
         }
-        
+
         .gallery img {
             width: 100%;
             height: 100%;
@@ -56,14 +63,14 @@
             background: none;
             border-radius: 0;
         }
-        
+
         .arrow-row {
             margin-top: 10px;
             display: flex;
             gap: 20px;
             justify-content: center;
         }
-        
+
         .arrow-btn {
             width: 40px;
             height: 40px;
@@ -74,26 +81,24 @@
             cursor: pointer;
             font-size: 22px;
         }
-        
+
         .project-info {
             color: #f0f0f0;
             flex: 1;
         }
-        
-       @media (max-width: 900px) {
+
+        @media (max-width: 900px) {
             .project-container {
                 flex-direction: column;
                 align-items: stretch;
                 padding: 20px;
             }
-        
+
             .gallery {
                 height: 300px;
             }
         }
 
-
-        
     </style>
 </head>
 <body>
@@ -107,7 +112,8 @@
         </nav>
     </header>
 
-    <section>
+    <!-- ✅ Updated: Added wide-section class -->
+    <section class="wide-section">
         <div class="project-container">
             <div class="gallery-wrapper">
                 <div class="gallery" data-images='["assets/img/torsional_jig_chassis.png","assets/img/torsional_data.png"]'>
