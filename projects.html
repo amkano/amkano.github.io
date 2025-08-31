@@ -6,27 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        body {
+            background: #0a1733; /* Optional main background */
+        }
         .project-container {
-            max-width: 1200px;   /* Use more screen width */
+            max-width: 1200px;
             margin: 40px auto;
             display: flex;
             gap: 40px;
             align-items: center;
+            /* Removed background, border-radius, padding, box-shadow */
         }
         .gallery {
             position: relative;
-            flex: 2;                 /* Take up more space on the left */
-            height: 400px;           /* Large image! Adjust as needed */
+            flex: 2;
+            height: 400px;
             min-width: 300px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            /* Removed background, border-radius */
         }
         .gallery img {
             width: 100%;
             height: 100%;
-            object-fit: contain;     /* Show all of image, keep aspect ratio */
+            object-fit: contain;
             background: none;
             border-radius: 0;
         }
@@ -48,7 +53,7 @@
         .arrow-btn.right { right: 10px; }
         .project-info {
             color: #f0f0f0;
-            flex: 1;              /* Smaller than image */
+            flex: 1;
         }
         @media (max-width: 900px) {
             .project-container {
