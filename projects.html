@@ -11,38 +11,48 @@
             margin: 0;
             padding: 0;
         }
-    
+
         .project-container {
-            max-width: 100%;
-            padding: 20px;
-            margin: 0 auto;
+            width: 100vw;
+            padding: 40px 20px;
             display: flex;
             gap: 40px;
             align-items: center;
+            box-sizing: border-box;
         }
-    
-        .gallery {
-            position: relative;
+
+        .gallery-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             flex: 2;
-            height: 600px; /* Increased height */
-            overflow: hidden;
+        }
+
+        .gallery {
+            width: 100%;
+            height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
-    
+
         .gallery img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Makes the image fill space more */
+            object-fit: cover;
             background: none;
             border-radius: 0;
         }
-    
+
+        .arrow-row {
+            margin-top: 10px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
         .arrow-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             width: 40px;
             height: 40px;
             background: rgba(36,36,36,0.7);
@@ -51,27 +61,22 @@
             border-radius: 50%;
             cursor: pointer;
             font-size: 22px;
-            z-index: 1;
         }
-    
-        .arrow-btn.left { left: 10px; }
-        .arrow-btn.right { right: 10px; }
-    
+
         .project-info {
             color: #f0f0f0;
             flex: 1;
         }
-    
+
         @media (max-width: 900px) {
             .project-container {
                 flex-direction: column;
                 align-items: stretch;
-                padding: 10px;
+                padding: 20px;
             }
-    
+
             .gallery {
-                width: 100%;
-                height: 300px; /* Smaller height on mobile */
+                height: 300px;
             }
         }
     </style>
@@ -89,10 +94,14 @@
 
     <section>
         <div class="project-container">
-            <div class="gallery" data-images='["assets/img/torsional_jig_chassis.png","assets/img/torsional_data.png"]'>
-                <button class="arrow-btn left">&#8592;</button>
-                <img src="assets/img/torsional_jig_chassis.png" alt="Project screenshot">
-                <button class="arrow-btn right">&#8594;</button>
+            <div class="gallery-wrapper">
+                <div class="gallery" data-images='["assets/img/torsional_jig_chassis.png","assets/img/torsional_data.png"]'>
+                    <img src="assets/img/torsional_jig_chassis.png" alt="Project screenshot">
+                </div>
+                <div class="arrow-row">
+                    <button class="arrow-btn left">&#8592;</button>
+                    <button class="arrow-btn right">&#8594;</button>
+                </div>
             </div>
             <div class="project-info">
                 <h2>Test Project</h2>
@@ -111,8 +120,8 @@
         const images = JSON.parse(gallery.getAttribute('data-images'));
         let current = 0;
         const imgTag = gallery.querySelector('img');
-        const leftBtn = gallery.querySelector('.arrow-btn.left');
-        const rightBtn = gallery.querySelector('.arrow-btn.right');
+        const leftBtn = gallery.parentElement.querySelector('.arrow-btn.left');
+        const rightBtn = gallery.parentElement.querySelector('.arrow-btn.right');
 
         function updateImg() {
             imgTag.src = images[current];
