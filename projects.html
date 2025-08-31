@@ -85,6 +85,23 @@
             flex: 1;
         }
 
+        .image-frame {
+            border: 7px solid black;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
         @media (max-width: 900px) {
             .project-container {
                 flex-direction: column;
@@ -115,7 +132,9 @@
         <div class="project-container">
             <div class="gallery-wrapper">
                 <div class="gallery" data-images='["assets/img/torsional_jig_chassis.png","assets/img/torsional_data.png"]'>
-                    <img src="assets/img/torsional_jig_chassis.png" alt="Project screenshot">
+                    <div class="image-frame">
+                        <img src="assets/img/torsional_jig_chassis.png" alt="Project screenshot">
+                    </div>
                 </div>
                 <div class="arrow-row">
                     <button class="arrow-btn left">&#8592;</button>
@@ -133,7 +152,9 @@
         <div class="project-container">
             <div class="gallery-wrapper">
                 <div class="gallery" data-images='["assets/img/hack_rover.png","assets/img/hack_rover_cad.png"]'>
-                    <img src="assets/img/hack_rover.png" alt="Project screenshot">
+                    <div class="image-frame">
+                        <img src="assets/img/hack_rover.png" alt="Project screenshot">
+                    </div>
                 </div>
                 <div class="arrow-row">
                     <button class="arrow-btn left">&#8592;</button>
