@@ -82,6 +82,18 @@
                 height: 300px;
             }
         }
+
+        .full-bleed {
+            margin: 0;
+            padding: 0;
+        }
+
+        .project-container {
+            width: 100vw;
+            max-width: none;
+            ...
+        }
+        
     </style>
 </head>
 <body>
@@ -95,7 +107,7 @@
         </nav>
     </header>
 
-    <section>
+    <section class="full-bleed">
         <div class="project-container">
             <div class="gallery-wrapper">
                 <div class="gallery" data-images='["assets/img/torsional_jig_chassis.png","assets/img/torsional_data.png"]'>
