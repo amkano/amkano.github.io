@@ -174,40 +174,28 @@
     </footer>
 
     <script>
-        document.querySelectorAll('.gallery').forEach(function(gallery) {
-            const images = JSON.parse(gallery.getAttribute('data-images'));
-            let current = 0;
-        
-            const imgTag = gallery.querySelector('img');
-            const imageFrame = gallery.querySelector('.image-frame');
-            const leftBtn = gallery.parentElement.querySelector('.arrow-btn.left');
-            const rightBtn = gallery.parentElement.querySelector('.arrow-btn.right');
-        
-            function updateImg() {
-                imgTag.src = images[current];
-            }
-        
-            // Prevent scroll caused by focus
-            function suppressFocusScroll(btn) {
-                btn.setAttribute('tabindex', '-1');
-                btn.addEventListener('pointerdown', e => e.preventDefault());
-            }
-        
-            suppressFocusScroll(leftBtn);
-            suppressFocusScroll(rightBtn);
-        
-            leftBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                current = (current - 1 + images.length) % images.length;
-                updateImg();
-            });
-        
-            rightBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                current = (current + 1) % images.length;
-                updateImg();
-            });
+    document.querySelectorAll('.gallery').forEach(function(gallery) {
+        const images = JSON.parse(gallery.getAttribute('data-images'));
+        let current = 0;
+    
+        const imgTag = gallery.querySelector('img');
+        const leftBtn = gallery.parentElement.querySelector('.arrow-btn.left');
+        const rightBtn = gallery.parentElement.querySelector('.arrow-btn.right');
+    
+        function updateImg() {
+            imgTag.src = images[current];
+        }
+    
+        leftBtn.addEventListener('click', function() {
+            current = (current - 1 + images.length) % images.length;
+            updateImg();
         });
+    
+        rightBtn.addEventListener('click', function() {
+            current = (current + 1) % images.length;
+            updateImg();
+        });
+    });
     </script>
 
 
