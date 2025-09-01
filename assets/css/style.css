@@ -9,8 +9,6 @@ header {
     text-align: center;
     margin-bottom: 40px;
     padding: 20px 0;
-    border-top: 1px solid #f0f0f0;    /* Thin top line */
-    border-bottom: 2px solid #f0f0f0; /* Thin bottom line */
 }
 
 
@@ -34,6 +32,14 @@ nav a {
 /* Nav links underline only on hover */
 nav a:hover {
     text-decoration: underline;
+}
+
+nav {
+    display: inline-block;               /* Shrinks nav to button width */
+    border-top: 1px solid #f0f0f0;       /* ✅ Top line */
+    border-bottom: 1px solid #f0f0f0;    /* ✅ Bottom line */
+    padding: 10px 0;
+    margin-top: 15px;
 }
 
 section {
