@@ -5,6 +5,98 @@
     <title>About - Your Name</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+
+        .wide-section {
+            max-width: none;
+            width: 100%;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+
+        .project-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 2;
+        }
+
+        .gallery {
+            display: inline-flex;
+            min-width: 300px;
+            min-height: 600px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .image-frame {
+            border: 7px solid black;
+            display: flex;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-frame img {
+            max-width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            display: block;
+            width: auto;
+            height: auto;
+        }
+
+        .arrow-row {
+            margin-top: 10px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .arrow-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(36,36,36,0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+        .project-info {
+            color: #333;
+            flex: 1;
+        }
+
+        @media (max-width: 900px) {
+            .project-container {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px;
+            }
+
+            .gallery {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,27 +108,67 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
-    <section>
-        <h2>Who am I?</h2>
-        <p>
-            Hello! I'm Your Name, a [your profession/interest, e.g. web developer, student, designer] based in [your location]. 
-            I enjoy [your hobbies/interests, e.g. coding, photography, hiking], and I'm passionate about [your passion, e.g. technology, design, learning new things].
-        </p>
-        <h3>Skills & Interests</h3>
-        <ul>
-            <li>Web development (HTML, CSS, JavaScript)</li>
-            <li>Programming (Python, Java)</li>
-            <li>Design</li>
-            <li>Photography</li>
-            <!-- Add more as you like -->
-        </ul>
-        <h3>More About Me</h3>
-        <p>
-            Feel free to browse my website or <a href="contact.html">get in touch</a> if you'd like to connect!
-        </p>
+
+    <section class="wide-section">
+        <div class="project-container">
+            <div class="gallery-wrapper">
+                <div class="gallery" data-images='["assets/img/about1.jpg", "assets/img/about2.jpg"]'>
+                    <div class="image-frame">
+                        <img src="assets/img/about1.jpg" alt="About photo">
+                    </div>
+                </div>
+                <div class="arrow-row">
+                    <button class="arrow-btn left" tabindex="-1">&#8592;</button>
+                    <button class="arrow-btn right" tabindex="-1">&#8594;</button>
+                </div>
+            </div>
+            <div class="project-info">
+                <h2>Who am I?</h2>
+                <p>
+                    Hello! I'm Your Name, a [your profession/interest] based in [your location]. I enjoy [your hobbies] and I'm passionate about [your passion].
+                </p>
+                <h3>Skills & Interests</h3>
+                <ul>
+                    <li>Web development (HTML, CSS, JavaScript)</li>
+                    <li>Programming (Python, Java)</li>
+                    <li>Design</li>
+                    <li>Photography</li>
+                </ul>
+                <h3>More About Me</h3>
+                <p>
+                    Feel free to browse my website or <a href="contact.html">get in touch</a> if you'd like to connect!
+                </p>
+            </div>
+        </div>
     </section>
+
     <footer>
         &copy; 2025 Your Name
     </footer>
+
+    <script>
+    document.querySelectorAll('.gallery').forEach(function(gallery) {
+        const images = JSON.parse(gallery.getAttribute('data-images'));
+        let current = 0;
+
+        const imgTag = gallery.querySelector('img');
+        const leftBtn = gallery.parentElement.querySelector('.arrow-btn.left');
+        const rightBtn = gallery.parentElement.querySelector('.arrow-btn.right');
+
+        function updateImg() {
+            imgTag.src = images[current];
+        }
+
+        leftBtn.addEventListener('click', function() {
+            current = (current - 1 + images.length) % images.length;
+            updateImg();
+        });
+
+        rightBtn.addEventListener('click', function() {
+            current = (current + 1) % images.length;
+            updateImg();
+        });
+    });
+    </script>
 </body>
 </html>
