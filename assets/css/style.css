@@ -36,8 +36,8 @@ nav a:hover {
 
 nav {
     display: inline-block;               /* Shrinks nav to button width */
-    border-top: 1px solid #f0f0f0;       /* ✅ Top line */
-    border-bottom: 1px solid #f0f0f0;    /* ✅ Bottom line */
+    border-top: 2px solid #f0f0f0;       /* ✅ Top line */
+    border-bottom: 2px solid #f0f0f0;    /* ✅ Bottom line */
     padding: 10px 0;
     margin-top: 15px;
 }
