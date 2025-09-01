@@ -174,46 +174,42 @@
     </footer>
 
     <script>
-    // Simple gallery slider
-    document.querySelectorAll('.gallery').forEach(function(gallery) {
-        const images = JSON.parse(gallery.getAttribute('data-images'));
-        let current = 0;
-        const imgTag = gallery.querySelector('img');
-        const leftBtn = gallery.parentElement.querySelector('.arrow-btn.left');
-        const rightBtn = gallery.parentElement.querySelector('.arrow-btn.right');
-
-        function updateImg() {
-            imgTag.src = images[current];
-        }
-
-        leftBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            current = (current - 1 + images.length) % images.length;
-            updateImg();
-            leftBtn.blur();  // Remove focus to prevent scrolling
+        document.querySelectorAll('.gallery').forEach(function(gallery) {
+            const images = JSON.parse(gallery.getAttribute('data-images'));
+            let current = 0;
+            const imgTag = gallery.querySelector('img');
+            const leftBtn = gallery.parentElement.querySelector('.arrow-btn.left');
+            const rightBtn = gallery.parentElement.querySelector('.arrow-btn.right');
+        
+            function updateImg() {
+                imgTag.src = images[current];
+            }
+        
+            // Update image and immediately blur to avoid scroll jump
+            leftBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                current = (current - 1 + images.length) % images.length;
+                updateImg();
+                this.blur();
+            });
+        
+            rightBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                current = (current + 1) % images.length;
+                updateImg();
+                this.blur();
+            });
         });
         
-        rightBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            current = (current + 1) % images.length;
-            updateImg();
-            rightBtn.blur(); // Remove focus to prevent scrolling
-        });
-    });
-
-        // Prevent arrow buttons from stealing focus and causing scroll jump
-    document.querySelectorAll('.arrow-btn').forEach(btn => {
-        btn.addEventListener('mousedown', e => {
-            e.preventDefault();
-        });
-        btn.addEventListener('touchstart', e => {
-            e.preventDefault();
-        });
-        btn.addEventListener('focus', e => {
-            e.preventDefault();
-        });
-    });
+        // Prevent buttons from ever receiving focus (which causes scroll jump)
+        document.querySelectorAll('.arrow-btn').forEach(btn => {
+            btn.setAttribute('tabindex', '-1'); // Makes button unfocusable by keyboard or mouse
         
-    </script>
+            btn.addEventListener('pointerdown', e => {
+                e.preventDefault(); // Blocks focus and scroll behavior across devices
+            });
+        });
+        </script>
+
 </body>
 </html>
