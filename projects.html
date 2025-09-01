@@ -177,7 +177,9 @@
         document.querySelectorAll('.gallery').forEach(function(gallery) {
             const images = JSON.parse(gallery.getAttribute('data-images'));
             let current = 0;
+        
             const imgTag = gallery.querySelector('img');
+            const imageFrame = gallery.querySelector('.image-frame');
             const leftBtn = gallery.parentElement.querySelector('.arrow-btn.left');
             const rightBtn = gallery.parentElement.querySelector('.arrow-btn.right');
         
@@ -185,31 +187,29 @@
                 imgTag.src = images[current];
             }
         
-            // Update image and immediately blur to avoid scroll jump
+            // Prevent scroll caused by focus
+            function suppressFocusScroll(btn) {
+                btn.setAttribute('tabindex', '-1');
+                btn.addEventListener('pointerdown', e => e.preventDefault());
+            }
+        
+            suppressFocusScroll(leftBtn);
+            suppressFocusScroll(rightBtn);
+        
             leftBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 current = (current - 1 + images.length) % images.length;
                 updateImg();
-                this.blur();
             });
         
             rightBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 current = (current + 1) % images.length;
                 updateImg();
-                this.blur();
             });
         });
-        
-        // Prevent buttons from ever receiving focus (which causes scroll jump)
-        document.querySelectorAll('.arrow-btn').forEach(btn => {
-            btn.setAttribute('tabindex', '-1'); // Makes button unfocusable by keyboard or mouse
-        
-            btn.addEventListener('pointerdown', e => {
-                e.preventDefault(); // Blocks focus and scroll behavior across devices
-            });
-        });
-        </script>
+    </script>
+
 
 </body>
 </html>
