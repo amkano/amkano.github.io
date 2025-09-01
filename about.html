@@ -38,29 +38,33 @@
         .gallery {
             display: inline-flex;
             min-width: 300px;
-            min-height: 600px;
+            width: 100%;
+            height: 600px; /* fixed height */
             align-items: center;
             justify-content: center;
             overflow: hidden;
             box-sizing: border-box;
         }
-
+        
         .image-frame {
+            width: 100%;
+            height: 100%;
             border: 7px solid black;
             display: flex;
-            box-sizing: border-box;
             align-items: center;
             justify-content: center;
+            box-sizing: border-box;
         }
-
+        
         .image-frame img {
             max-width: 100%;
-            max-height: 600px;
-            object-fit: contain;
-            display: block;
+            max-height: 100%;
             width: auto;
             height: auto;
+            object-fit: contain;
+            display: block;
         }
+
 
         .arrow-row {
             margin-top: 10px;
@@ -113,7 +117,7 @@
         <div class="project-container">
             <div class="gallery-wrapper">
                 <div class="gallery" data-images='["assets/img/alex1.jpg", "assets/img/alex2.JPG", "assets/img/alex3.JPG", "assets/img/alex4.JPEG",
-                                                    "assets/img/alex5.jpg", "assets/img/alex6.JPG", "assets/img/alex7.jpg", "assets/img/alex8.JPG"]'>
+                                                    "assets/img/alex5.jpg", "assets/img/alex6.JPG", "assets/img/alex7.JPG", "assets/img/alex8.jpg"]'>
                     <div class="image-frame">
                         <img src="assets/img/alex1.jpg" alt="About photo">
                     </div>
